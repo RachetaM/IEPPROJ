@@ -1,14 +1,21 @@
-#ifndef _PIN_H_
-#define _PIN_H_
-class Pin{
+
+#ifndef PIN
+#define PIN
+#ifdef _MSC_VER
+#pragma once
+#endif  // _MSC_VER
+class Pin {
 protected:
     int id;
     int direction;
 public:
     void setDirection();
-    int getDirection();
+    virtual int getDirection();
     void changeDirection();
-    Pin(int id,int direction);
+    Pin(int id, int direction);
     ~Pin(void);
+
 };
-#endif // PIN_H
+    // Contents of the header file here
+#endif  // HEADER_FILE
+

@@ -1,7 +1,11 @@
 #include <QCoreApplication>
 #include "bcm2835.h"
+#include "inputpin.h"
+#include "pin.h"
+#include "outputpin.h"
+#include "pwm.h"
 #define PIN 3
-
+/*
 class Pin{
 protected:
     int id;
@@ -28,7 +32,7 @@ Pin::~Pin(void)
 
 class OutputPin:public Pin{
 public:
-   OutputPin(int id,int direction):Pin(id,direction){};
+   OutputPin(int id,int direction):Pin(id,direction){}
     ~OutputPin(void);
    void setDirection();
 };
@@ -95,7 +99,7 @@ void Pin::changeDirection(){
         bcm2835_peri_set_bits(paddr, value, mask);
     }
 }
-
+*/
 int main(int argc, char *argv[])
 {/*
     QCoreApplication a(argc, argv);
@@ -107,13 +111,13 @@ int main(int argc, char *argv[])
          return 1;
 
        // Set the pin to be an output
-       bcm2835_gpio_fsel(PIN, BCM2835_GPIO_FSEL_OUTP);
+       //bcm2835_gpio_fsel(PIN, BCM2835_GPIO_FSEL_OUTP);
 
        // Blink
        while (1)
        {
        // Turn it on
-       bcm2835_gpio_write(PIN, HIGH);
+       /*bcm2835_gpio_write(PIN, HIGH);
 
        // wait a bit
        bcm2835_delay(500);
@@ -123,7 +127,9 @@ int main(int argc, char *argv[])
 
        // wait a bit
        bcm2835_delay(500);
-       }
+       }*/
+       InputPin a(1,BCM2835_GPIO_FSEL_INPT,2);
+       OutputPin b(2,BCM2835_GPIO_FSEL_OUTP);
        bcm2835_close();
        return 0;
 }

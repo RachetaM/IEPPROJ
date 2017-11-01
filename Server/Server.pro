@@ -13,10 +13,12 @@ SOURCES += main.cpp \
     bcm2835_stub.cpp \
     pin.c \
     inputpin.c \
-    outputpin.c
+    outputpin.c \
+    pwm.c
 
 HEADERS += \
     bcm2835.h \
     pin.h \
     inputpin.h \
-    outputpin.h
+    outputpin.h \
+    pwm.h

@@ -1,11 +1,11 @@
-#include"inputpin.h"
-#include "bcm2835.h"
+#pragma once
+#include "inputpin.h"
 
 void InputPin::setDirection()
 {
 
 }
 
-InputPin::~InputPin(){
+InputPin::~InputPin() {
 
 }

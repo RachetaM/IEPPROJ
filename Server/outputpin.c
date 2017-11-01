@@ -1,4 +1,5 @@
-#include"outputpin.h"
+#pragma once
+#include "outputpin.h"
 #include "bcm2835.h"
 
 OutputPin::~OutputPin(void)
@@ -9,7 +10,7 @@ OutputPin::~OutputPin(void)
 void OutputPin::setDirection()
 {
 
-   volatile uint32_t* paddr = bcm2835_gpio + BCM2835_GPFSEL0/4 + (id/10);
+    volatile uint32_t* paddr = bcm2835_gpio + BCM2835_GPFSEL0 / 4 + (id / 10);
     uint8_t   shift = (id % 10) * 3;
     uint32_t  mask = BCM2835_GPIO_FSEL_MASK << shift;
     uint32_t  value = BCM2835_GPIO_FSEL_OUTP << shift;
